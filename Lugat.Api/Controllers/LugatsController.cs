@@ -44,7 +44,7 @@ namespace Lugat.Api.Controllers
         [Route("search")]
         public async Task<ActionResult<IEnumerable<Models.Lugat>>> SearchLugat(string key)
         {
-            var lugat = await _context.Lugatlar.Where(l=>l.Kirpilmis.Contains(key)).ToListAsync();
+            var lugat = await _context.Lugatlar.Where(l=>l.Kirpilmis.StartsWith(key)).ToListAsync();
 
             if (lugat == null)
             {
